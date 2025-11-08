@@ -1,18 +1,20 @@
 package com.notube.notube.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@ToString(exclude = {"likes", "comments", "uploader"})
+@EqualsAndHashCode(exclude = {"likes", "comments", "uploader"})
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
